@@ -1,14 +1,17 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
 import Home from "../Home";
+
 import MyAccount from "../MyAccount";
 import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
+
 import NotFound from "../NotFound";
 import Sigin from "../Sigin";
 import Navbar from "../../Components/Navbar/index"
 import "./App.css";
 
-const AppRoutes = () => {
+const AppRoutes = () => { 
+
   let routes = useRoutes([
     { path: "/", element: <Home /> },
     { path: "/my-account", element: <MyAccount /> },
