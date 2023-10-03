@@ -1,17 +1,15 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
+import {ShoppingCartProvider} from "../../Context"
 import Home from "../Home";
-
 import MyAccount from "../MyAccount";
 import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
-
 import NotFound from "../NotFound";
 import Sigin from "../Sigin";
-import Navbar from "../../Components/Navbar/index"
+import Navbar from "../../Components/Navbar/index";
 import "./App.css";
 
-const AppRoutes = () => { 
-
+const AppRoutes = () => {
   let routes = useRoutes([
     { path: "/", element: <Home /> },
     { path: "/my-account", element: <MyAccount /> },
@@ -25,10 +23,12 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
+    <ShoppingCartProvider>
     <BrowserRouter>
       <AppRoutes />
-      <Navbar/>
+      <Navbar />
     </BrowserRouter>
+    </ShoppingCartProvider>
   );
 };
 
