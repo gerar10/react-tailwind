@@ -6,7 +6,13 @@ import { ShoppingCartContext } from "../../Context";
 
 const CheckoutSideMenu = () => {
   const context = useContext(ShoppingCartContext);
-  console.log("CART", context.cartProducts);
+
+  const handleDelete = (id) => {
+    const filteredProduct = context.cartProducts.filter(
+      (product) => product.id != id
+    );
+    context.setCartProducts(filteredProduct);
+  };
 
   return (
     <aside
@@ -23,16 +29,17 @@ const CheckoutSideMenu = () => {
           ></XMarkIcon>
         </div>
       </div>
-      <div className="px-6">
-      {context.cartProducts.map((product) => (
-        <OrderCard
-          key={product.id}
-          title={product.title}
-          imageUrl={product.images}
-          price={product.price}
-        />
-      ))}
-
+      <div className="px-6 overflow-y-scroll">
+        {context.cartProducts.map((product) => (
+          <OrderCard
+            key={product.id}
+            id={product.id}
+            title={product.title}
+            imageUrl={product.images}
+            price={product.price}
+            handleDelete={handleDelete}
+          />
+        ))}
       </div>
     </aside>
   );
