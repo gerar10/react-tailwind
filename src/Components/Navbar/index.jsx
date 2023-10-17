@@ -16,46 +16,46 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/"
+            onClick={() => context.setSearchByCategory("")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            {" "}
-            All{" "}
+            All
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/clothes"
+            onClick={() => context.setSearchByCategory("clothes")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            {" "}
-            Clothes{" "}
+            Clothes
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/electronics"
+            onClick={() => context.setSearchByCategory("electronics")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            {" "}
-            Electronics{" "}
+            Electronics
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/toys"
+            to="/furniture"
+            onClick={() => context.setSearchByCategory("furniture")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            {" "}
-            Toys{" "}
+            Furniture
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/others"
+            onClick={() => context.setSearchByCategory("others")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            {" "}
-            Others{" "}
+            Others
           </NavLink>
         </li>
       </ul>
@@ -88,10 +88,9 @@ const Navbar = () => {
             Sign in
           </NavLink>
         </li>
-
         <li className="flex items-center">
           <ShoppingBagIcon className="h-6 w-6 text-black"></ShoppingBagIcon>
-          <div> {context.count} </div>
+          <div> {context.cartProducts.length} </div>
         </li>
       </ul>
     </nav>
